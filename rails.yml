@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  user: homepage
+  sudo: yes
+  vars:
+      repos_dir : "~homepage/.anyenv"
+      branch: master
+  tasks:
+    - git: repo=https://github.com/riywo/anyenv dest={{ repos_dir }}
+
