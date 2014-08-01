@@ -1,11 +1,7 @@
 ---
-- hosts: 127.0.0.1
+- hosts: tester
   user: root
   tasks:
-    - name: install epel
-      yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
-    - name: install remi
-      yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
     - name: install minimum modules
       yum: name={{ item }} state=installed
       with_items:
@@ -15,10 +11,17 @@
        - git
        - make
        - openssl-devel
+       - tar
+       - sudo
+    - name: install epel
+      yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
+    - name: install remi
+      yum: name=http://rpms.famillecollet.com/enterprise/remi-release-6.rpm state=present
     - name: install mysql
       yum: name={{ item }} state=installed enablerepo=remi
       with_items:
         - mysql
         - mysql-server
         - mysql-devel
+
 
