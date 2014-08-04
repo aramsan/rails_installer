@@ -1,7 +1,9 @@
 cd ~homepage
 
-echo test > test.txt
+export PATH="$HOME/.anyenv/bin:$PATH"
+eval "$(anyenv init -)"
+
 anyenv install rbenv
-exec $SHELL -l
+# exec $SHELL -l
 
 

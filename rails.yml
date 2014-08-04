@@ -3,7 +3,7 @@
   sudo: yes
   sudo_user: homepage
   vars:
-      repos_dir : "~homepage/.anyenv"
+      repos_dir : ".anyenv"
       branch: master
   tasks:
     - name: install anyenv
