@@ -23,5 +23,14 @@
         - mysql
         - mysql-server
         - mysql-devel
-
+    - name: install nginx
+      yum: name=nginx state=installed
+    - name: install sqlite 
+      yum: name={{ item }} state=installed
+      with_items:
+        - sqlite-devel
+        - libxslt-devel
+        - libxml2-devel
+        - nodejs
+        - npm
 
