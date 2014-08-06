@@ -25,6 +25,16 @@
         - mysql-devel
     - name: install nginx
       yum: name=nginx state=installed
+    - name: create nginx log directory
+      command: mkdir -p /var/log/rails/nginx/
+    - name: put nginx.conf
+      template: src=nginx.conf/nginx.conf.j2 dest=/etc/nginx/nginx.conf
+    - name: put rails.conf
+      template: src=nginx.conf/rails.conf.j2 dest=/etc/nginx/conf.d/rails.conf
+    - name: set auto start nginx
+      command: chkconfig nginx on
+    - name: restart nginx
+      command: service nginx restart
     - name: install sqlite 
       yum: name={{ item }} state=installed
       with_items:
