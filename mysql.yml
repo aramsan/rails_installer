@@ -23,6 +23,12 @@
         - mysql
         - mysql-server
         - mysql-devel
+    - name: put my.cnf
+      template: src=my.cnf/my.cnf.j2 dest=/etc/my.cnf
+    - name: set auto start mysql
+      command: chkconfig mysqld on
+    - name: restart mysql
+      command: service mysqld restart
     - name: install nginx
       yum: name=nginx state=installed
     - name: create nginx log directory
