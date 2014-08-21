@@ -1,0 +1,6 @@
+---
+- hosts: tester
+  user: root
+  tasks:
+    - name: setup homepage user
+      script: setupuser.sh

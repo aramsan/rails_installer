@@ -1,0 +1,7 @@
+---
+- hosts: tester
+  sudo: yes
+  sudo_user: homepage
+  tasks:
+    - name: set up git config
+      script: git.sh
