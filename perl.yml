@@ -1,0 +1,16 @@
+---
+- hosts: tester
+  sudo: yes
+  sudo_user: homepage
+  vars:
+      repos_dir : ".anyenv"
+      branch: master
+  tasks:
+    - name: install anyenv
+      git: repo=https://github.com/riywo/anyenv dest={{ repos_dir }}
+    - name: install anyenv(cont)
+      script: anyenv.sh
+    - name: install plenv
+      script: plenv.sh
+    - name: install perl
+      script: perl.sh

@@ -13,6 +13,9 @@
        - openssl-devel
        - tar
        - sudo
+       - bzip2
+    - name: create syboric link to /dev/fd
+      shell: if [ ! -d /dev/fd ]; then ln -s /proc/self/fd /dev/fd; fi;
     - name: install epel
       yum: name=http://dl.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-8.noarch.rpm state=present
     - name: install remi
